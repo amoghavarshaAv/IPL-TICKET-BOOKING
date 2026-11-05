@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Tickets - IPL 2026</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <h1>IPL 2026 Ticket Booking</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#matches">Matches</a>
+            <a href="booking.html">Book Ticket</a>
+            <a href="index.html#mybookings">My Bookings</a>
+            <a href="index.html#guidelines">Guidelines</a>
+        </nav>
+    </header>
+
+    <!-- Ticket Booking Form Section -->
+    <section id="booking">
+        <h2>Book Your IPL Tickets</h2>
+        <p>Fill out the form below with valid details to secure your match seats.</p>
+
+        <!-- Form with JavaScript onsubmit to handle validation & prevent 405 server error on Live Server -->
+        <form onsubmit="alert('Booking submitted successfully! Your tickets are reserved.'); return false;">
+
+            <!-- Match Selection -->
+            <label for="match">Select Match:</label>
+            <select id="match" name="match" required>
+                <option value="" disabled selected>-- Choose a Match --</option>
+                <option value="rcb-csk">RCB vs CSK (10 April 2026 - Bengaluru)</option>
+                <option value="mi-kkr">MI vs KKR (12 April 2026 - Mumbai)</option>
+                <option value="csk-srh">CSK vs SRH (15 April 2026 - Chennai)</option>
+            </select>
+
+            <!-- Stand Category -->
+            <label for="stand">Stand Category:</label>
+            <select id="stand" name="stand" required>
+                <option value="" disabled selected>-- Choose Stand Category --</option>
+                <option value="general">General (₹700 - ₹900)</option>
+                <option value="premium">Premium (₹1400 - ₹1800)</option>
+                <option value="vip">VIP (₹2800 - ₹3500)</option>
+            </select>
+
+            <!-- Number of Tickets -->
+            <label for="tickets">Number of Tickets (Max 10):</label>
+            <input type="number" id="tickets" name="tickets" min="1" max="10" value="1" required>
+
+            <!-- Personal Details -->
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" name="fullname" minlength="3" maxlength="50" placeholder="Enter your full name" required>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" placeholder="name@example.com" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="10-digit mobile number (e.g. 9876543210)" required>
+
+            <!-- Additional Preferences (Checkboxes) -->
+            <label>Additional Match-Day Preferences:</label>
+            <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 5px;">
+                <label style="font-weight: normal; font-size: 0.95rem;">
+                    <input type="checkbox" name="preferences" value="parking"> Include Stadium Parking Pass (+₹250)
+                </label>
+                <label style="font-weight: normal; font-size: 0.95rem;">
+                    <input type="checkbox" name="preferences" value="meals"> Pre-book Stadium Snack Combo (+₹400)
+                </label>
+            </div>
+
+            <!-- Buttons -->
+            <div style="display: flex; gap: 15px; margin-top: 10px;">
+                <input type="submit" value="Confirm Booking" style="flex: 2;">
+                <input type="reset" value="Reset Form" style="flex: 1; background-color: #64748b; color: white; border: none; border-radius: 6px; font-weight: 700; cursor: pointer;">
+            </div>
+
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Copyright © 2026 IPL Ticket Booking Website.</p>
+        <p>All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
