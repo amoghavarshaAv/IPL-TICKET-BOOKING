@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Ticket Booking 2027</title>
+    <style>
+        /* Basic styling for responsiveness and layout */
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; color: #333; }
+        header { background: #00008b; color: #fff; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        nav a { color: #fff; margin-left: 15px; text-decoration: none; font-weight: bold; }
+        nav a:hover { text-decoration: underline; }
+        section { padding: 2.5rem 5%; border-bottom: 1px solid #ddd; }
+        h1, h2, h3 { color: #222; }
+        
+        /* Banner Section */
+        #banner { background: linear-gradient(135deg, #f4f4f4, #e2e2e2); text-align: center; padding: 4rem 2rem; }
+        button { padding: 10px 20px; margin: 5px; background: #ff8c00; border: none; color: white; cursor: pointer; font-size: 1rem; border-radius: 5px; }
+        button:hover { background: #e07b00; }
+
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; overflow-x: auto; display: block; }
+        th, td { border: 1px solid #ccc; padding: 12px; text-align: left; min-width: 120px; }
+        th { background: #f4f4f4; }
+
+        /* Booking Section */
+        .booking-container { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1rem; }
+        .booking-form, .booking-summary { flex: 1; min-width: 300px; background: #fafafa; padding: 1.5rem; border: 1px solid #ddd; border-radius: 8px; }
+        form label { display: block; margin-top: 10px; font-weight: bold; }
+        form input, form select { width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        
+        /* Guidelines Cards */
+        .cards { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1rem; }
+        .card { flex: 1; min-width: 250px; background: #fff; padding: 1.5rem; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+
+        footer { background: #222; color: #fff; text-align: center; padding: 1.5rem; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <h2>IPL 2027</h2>
+        <nav>
+            <a href="#matches">Matches</a>
+            <a href="#book-ticket">Book Ticket</a>
+            <a href="#my-bookings">My Bookings</a>
+            <a href="#guidelines">Guidelines</a>
+        </nav>
+    </header>
+
+    <!-- Banner (Hero) Section -->
+    <section id="banner">
+        <h2>Experience The Stadium Energy Live!</h2>
+        <p>Book your tickets now for the biggest cricketing event of the year.</p>
+        <button onclick="location.href='#matches'">View Schedule</button>
+        <button onclick="location.href='#book-ticket'">Book Ticket</button>
+    </section>
+
+    <!-- About IPL 2027 -->
+    <section id="about">
+        <h2>About IPL 2027</h2>
+        
+        <h3>Popular Teams</h3>
+        <ul>
+            <li>Chennai Super Kings (CSK)</li>
+            <li>Mumbai Indians (MI)</li>
+            <li>Royal Challengers Bengaluru (RCB)</li>
+            <li>Kolkata Knight Riders (KKR)</li>
+        </ul>
+
+        <h3>Major Match Venues</h3>
+        <ul>
+            <li>M. A. Chidambaram Stadium, Chennai</li>
+            <li>Wankhede Stadium, Mumbai</li>
+            <li>M. Chinnaswamy Stadium, Bengaluru</li>
+            <li>Eden Gardens, Kolkata</li>
+        </ul>
+    </section>
+
+    <!-- Match Schedule Section -->
+    <section id="matches">
+        <h2>Match Schedule</h2>
+        
+        <label for="team-filter"><strong>Filter by Team: </strong></label>
+        <select id="team-filter">
+            <option value="all">All Teams</option>
+            <option value="csk">Chennai Super Kings</option>
+            <option value="mi">Mumbai Indians</option>
+            <option value="rcb">Royal Challengers Bengaluru</option>
+        </select>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Match Number</th>
+                    <th>Teams</th>
+                    <th>Date & Time</th>
+                    <th>Venue</th>
+                    <th>Ticket Prices (General / Premium / VIP)</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Match 1</td>
+                    <td>CSK vs MI</td>
+                    <td>April 5, 2027 | 7:30 PM</td>
+                    <td>M. A. Chidambaram Stadium, Chennai</td>
+                    <td>₹1000 / ₹2500 / ₹5000</td>
+                    <td><button onclick="location.href='#book-ticket'">Book</button></td>
+                </tr>
+                <tr>
+                    <td>Match 2</td>
+                    <td>RCB vs KKR</td>
+                    <td>April 6, 2027 | 7:30 PM</td>
+                    <td>M. Chinnaswamy Stadium, Bengaluru</td>
+                    <td>₹1200 / ₹3000 / ₹6000</td>
+                    <td><button onclick="location.href='#book-ticket'">Book</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Ticket Booking Section -->
+    <section id="book-ticket">
+        <h2>Book Your Tickets</h2>
+        <div class="booking-container">
+            
+            <!-- Booking Form -->
+            <div class="booking-form">
+                <form action="#" method="POST">
+                    <label for="match-select">Select Match:</label>
+                    <select id="match-select" name="match" required>
+                        <option value="">-- Choose a Match --</option>
+                        <option value="match1">Match 1: CSK vs MI</option>
+                        <option value="match2">Match 2: RCB vs KKR</option>
+                    </select>
+
+                    <label for="stand-category">Stand Category:</label>
+                    <select id="stand-category" name="stand" required>
+                        <option value="general">General</option>
+                        <option value="premium">Premium</option>
+                        <option value="vip">VIP</option>
+                    </select>
+
+                    <label for="ticket-count">Number of Tickets:</label>
+                    <input type="number" id="ticket-count" name="tickets" min="1" max="10" required>
+
+                    <label for="full-name">Full Name:</label>
+                    <input type="text" id="full-name" name="name" required>
+
+                    <label for="email-address">Email:</label>
+                    <input type="email" id="email-address" name="email" required>
+
+                    <label for="phone-number">Phone Number:</label>
+                    <input type="tel" id="phone-number" name="phone" pattern="[0-9]{10}" placeholder="10-digit number" required>
+
+                    <button type="submit" style="margin-top: 15px; width: 100%;">Confirm Booking</button>
+                </form>
+            </div>
+
+            <!-- Booking Summary Card -->
+            <div class="booking-summary">
+                <h3>Booking Summary</h3>
+                <p><strong>Selected Match:</strong> <span id="summary-match">Not Selected</span></p>
+                <p><strong>Stand Category:</strong> <span id="summary-stand">Not Selected</span></p>
+                <p><strong>Ticket Price:</strong> ₹<span id="summary-price">0</span></p>
+                <p><strong>Quantity:</strong> <span id="summary-qty">0</span></p>
+                <hr>
+                <p><strong>Total Amount:</strong> ₹<span id="summary-total">0</span></p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- My Ticket Bookings Section -->
+    <section id="my-bookings">
+        <h2>My Ticket Bookings</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>Match</th>
+                    <th>Stand</th>
+                    <th>Tickets</th>
+                    <th>Amount Paid</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Empty table for future records -->
+                <tr>
+                    <td colspan="6" style="text-align: center; color: #666;">No past bookings found.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Guidelines Section -->
+    <section id="guidelines">
+        <h2>Guidelines</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Ticket Verification</h3>
+                <p>Please ensure your digital or physical ticket QR code is clear and visible for scanning at the stadium gates. Do not share your QR code online.</p>
+            </div>
+            <div class="card">
+                <h3>ID Proof Requirement</h3>
+                <p>You must carry a valid government-issued ID (e.g., Aadhaar Card, PAN, or Passport) matching the name on your ticket for verification.</p>
+            </div>
+            <div class="card">
+                <h3>Prohibited Items</h3>
+                <p>Large bags, outside food and beverages, laptops, laser pointers, and hazardous materials are strictly prohibited inside the stadium premises.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2027 IPL Ticket Booking. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

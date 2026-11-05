@@ -1,0 +1,248 @@
+/* --- CSS Variables & Theme Setup --- */
+:root {
+    --primary-color: #0b1d3a;      /* Deep Royal Blue */
+    --accent-color: #f4c430;       /* Gold / Championship Yellow */
+    --accent-hover: #d4a520;       /* Darker Gold for hover states */
+    --bg-color: #f4f7f9;           /* Light neutral background */
+    --card-bg: #ffffff;            /* White card background */
+    --text-color: #333333;         /* Dark grey text */
+    --text-light: #666666;         /* Muted text */
+    --border-color: #d1d8e0;       /* Light border */
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Global Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding-top: 80px; /* Space for fixed header */
+}
+
+/* Hide old HTML divider lines since CSS layout will space sections nicely */
+hr {
+    display: none;
+}
+
+/* --- Navigation Bar (Fixed Position) --- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    letter-spacing: 0.5px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* --- Sections & Layout Cards --- */
+section {
+    max-width: 1000px;
+    margin: 30px auto;
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+section h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    border-bottom: 3px solid var(--accent-color);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+section h3 {
+    color: var(--primary-color);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+p, ul {
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+ul {
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+/* --- Hero (Banner) Section --- */
+section:nth-of-type(1) {
+    background: linear-gradient(135deg, var(--primary-color), #1a365d);
+    color: #ffffff;
+    text-align: center;
+    padding: 60px 20px;
+    margin-top: 20px;
+}
+
+section:nth-of-type(1) h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+section:nth-of-type(1) p {
+    color: #e2e8f0;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+section:nth-of-type(1) a {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    margin: 0 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+section:nth-of-type(1) a:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+/* --- Tables (Match Schedule & Bookings) --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #f8fafc;
+}
+
+td a {
+    color: var(--primary-color);
+    background-color: var(--accent-color);
+    padding: 6px 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    transition: background 0.2s;
+}
+
+td a:hover {
+    background-color: var(--accent-hover);
+}
+
+/* --- Form Styling --- */
+form {
+    display: grid;
+    gap: 15px;
+    max-width: 600px;
+    margin-top: 15px;
+}
+
+label {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: -10px;
+}
+
+select, input[type="text"], input[type="email"], input[type="tel"], input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #fafbfc;
+    transition: border-color 0.3s ease;
+}
+
+select:focus, input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: #ffffff;
+}
+
+input[type="submit"] {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #1a365d;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+    font-size: 0.9rem;
+}
+
+footer p {
+    color: #cbd5e1;
+    margin-bottom: 5px;
+}
