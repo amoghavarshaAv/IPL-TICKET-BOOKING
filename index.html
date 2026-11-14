@@ -3,38 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPL Ticket Booking 2027</title>
-    <style>
-        /* Basic styling for responsiveness and layout */
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; color: #333; }
-        header { background: #00008b; color: #fff; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-        nav a { color: #fff; margin-left: 15px; text-decoration: none; font-weight: bold; }
-        nav a:hover { text-decoration: underline; }
-        section { padding: 2.5rem 5%; border-bottom: 1px solid #ddd; }
-        h1, h2, h3 { color: #222; }
-        
-        /* Banner Section */
-        #banner { background: linear-gradient(135deg, #f4f4f4, #e2e2e2); text-align: center; padding: 4rem 2rem; }
-        button { padding: 10px 20px; margin: 5px; background: #ff8c00; border: none; color: white; cursor: pointer; font-size: 1rem; border-radius: 5px; }
-        button:hover { background: #e07b00; }
-
-        /* Tables */
-        table { width: 100%; border-collapse: collapse; margin-top: 1rem; overflow-x: auto; display: block; }
-        th, td { border: 1px solid #ccc; padding: 12px; text-align: left; min-width: 120px; }
-        th { background: #f4f4f4; }
-
-        /* Booking Section */
-        .booking-container { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1rem; }
-        .booking-form, .booking-summary { flex: 1; min-width: 300px; background: #fafafa; padding: 1.5rem; border: 1px solid #ddd; border-radius: 8px; }
-        form label { display: block; margin-top: 10px; font-weight: bold; }
-        form input, form select { width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        
-        /* Guidelines Cards */
-        .cards { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1rem; }
-        .card { flex: 1; min-width: 250px; background: #fff; padding: 1.5rem; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-
-        footer { background: #222; color: #fff; text-align: center; padding: 1.5rem; }
-    </style>
+    <title>IPL 2027 Ticket Booking</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -129,29 +99,30 @@
             
             <!-- Booking Form -->
             <div class="booking-form">
-                <form action="#" method="POST">
+                <form id="booking-form">
                     <label for="match-select">Select Match:</label>
                     <select id="match-select" name="match" required>
-                        <option value="">-- Choose a Match --</option>
-                        <option value="match1">Match 1: CSK vs MI</option>
-                        <option value="match2">Match 2: RCB vs KKR</option>
+                        <option value="" disabled selected>-- Choose a Match --</option>
+                        <option value="CSK vs MI">Match 1: CSK vs MI (Chennai)</option>
+                        <option value="RCB vs KKR">Match 2: RCB vs KKR (Bengaluru)</option>
                     </select>
 
-                    <label for="stand-category">Stand Category:</label>
-                    <select id="stand-category" name="stand" required>
-                        <option value="general">General</option>
-                        <option value="premium">Premium</option>
-                        <option value="vip">VIP</option>
+                    <label for="stand-select">Stand Category:</label>
+                    <select id="stand-select" name="stand" required>
+                        <option value="" disabled selected>-- Choose Stand --</option>
+                        <option value="General">General</option>
+                        <option value="Premium">Premium</option>
+                        <option value="VIP">VIP</option>
                     </select>
 
-                    <label for="ticket-count">Number of Tickets:</label>
-                    <input type="number" id="ticket-count" name="tickets" min="1" max="10" required>
+                    <label for="ticket-qty">Number of Tickets:</label>
+                    <input type="number" id="ticket-qty" name="tickets" min="1" max="10" value="1" required>
 
                     <label for="full-name">Full Name:</label>
-                    <input type="text" id="full-name" name="name" required>
+                    <input type="text" id="full-name" name="name" required placeholder="Enter your full name">
 
                     <label for="email-address">Email:</label>
-                    <input type="email" id="email-address" name="email" required>
+                    <input type="email" id="email-address" name="email" required placeholder="name@example.com">
 
                     <label for="phone-number">Phone Number:</label>
                     <input type="tel" id="phone-number" name="phone" pattern="[0-9]{10}" placeholder="10-digit number" required>
@@ -163,12 +134,12 @@
             <!-- Booking Summary Card -->
             <div class="booking-summary">
                 <h3>Booking Summary</h3>
-                <p><strong>Selected Match:</strong> <span id="summary-match">Not Selected</span></p>
-                <p><strong>Stand Category:</strong> <span id="summary-stand">Not Selected</span></p>
-                <p><strong>Ticket Price:</strong> ₹<span id="summary-price">0</span></p>
-                <p><strong>Quantity:</strong> <span id="summary-qty">0</span></p>
+                <p><strong>Selected Match:</strong> <span id="sum-match">Not Selected</span></p>
+                <p><strong>Stand Category:</strong> <span id="sum-stand">Not Selected</span></p>
+                <p><strong>Ticket Price:</strong> ₹<span id="sum-price">0</span></p>
+                <p><strong>Quantity:</strong> <span id="sum-qty">0</span></p>
                 <hr>
-                <p><strong>Total Amount:</strong> ₹<span id="summary-total">0</span></p>
+                <p><strong>Total Amount:</strong> ₹<span id="sum-total">0</span></p>
             </div>
 
         </div>
@@ -189,7 +160,6 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Empty table for future records -->
                 <tr>
                     <td colspan="6" style="text-align: center; color: #666;">No past bookings found.</td>
                 </tr>
@@ -220,6 +190,8 @@
     <footer>
         <p>&copy; 2027 IPL Ticket Booking. All Rights Reserved.</p>
     </footer>
+
+    <!-- JavaScript File -->
     <script src="app.js"></script>
 
 </body>

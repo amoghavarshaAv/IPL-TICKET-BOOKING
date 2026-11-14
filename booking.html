@@ -80,6 +80,53 @@
         </form>
     </section>
 
+    <!-- Ticket Booking Form -->
+    <section id="booking">
+        <h2>Book Your IPL Tickets</h2>
+
+        <form id="booking-form">
+
+            <label for="match-select">Select Match:</label>
+            <select id="match-select" required>
+                <option value="" disabled selected>-- Select Match --</option>
+                <option value="RCB vs CSK">RCB vs CSK (10 April 2026)</option>
+                <option value="MI vs KKR">MI vs KKR (12 April 2026)</option>
+                <option value="CSK vs SRH">CSK vs SRH (15 April 2026)</option>
+            </select>
+
+            <br><br>
+
+            <label for="stand-select">Stand Category:</label>
+            <select id="stand-select" required>
+                <option value="" disabled selected>-- Select Stand --</option>
+                <option value="General">General</option>
+                <option value="Premium">Premium</option>
+                <option value="VIP">VIP</option>
+            </select>
+
+            <br><br>
+
+            <label for="ticket-qty">Number of Tickets:</label>
+            <input type="number" id="ticket-qty" min="1" max="10" value="1" required>
+
+            <br><br>
+            <input type="submit" value="Confirm Booking">
+        </form>
+    </section>
+
+    <hr>
+
+    <!-- Booking Summary Card -->
+    <section id="summary-section">
+        <h2>Booking Summary</h2>
+
+        <p>Selected Match: <span id="sum-match">Not Selected</span></p>
+        <p>Stand Category: <span id="sum-stand">Not Selected</span></p>
+        <p>Ticket Price: <span id="sum-price">Not Available</span></p>
+        <p>Quantity: <span id="sum-qty">0</span></p>
+        <p>Total Amount: <span id="sum-total">₹0</span></p>
+    </section>
+
     <!-- Footer -->
     <footer>
         <p>Copyright © 2026 IPL Ticket Booking Website.</p>
