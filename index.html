@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPL 2027 Ticket Booking</title>
+    <title>IPL Ticket Booking</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Navigation Bar -->
+    <!-- Navigation Bar (Flexbox + Mobile Hamburger) -->
     <header>
-        <h2>IPL 2027</h2>
-        <nav>
+        <div class="logo">IPL Ticket Booking</div>
+
+        <button type="button" class="hamburger" id="hamburger-btn" aria-label="Toggle navigation" aria-expanded="false">
+            &#9776;
+        </button>
+
+        <nav id="main-nav">
             <a href="#matches">Matches</a>
             <a href="#book-ticket">Book Ticket</a>
             <a href="#my-bookings">My Bookings</a>
@@ -19,180 +24,195 @@
         </nav>
     </header>
 
-    <!-- Banner (Hero) Section -->
+    <!-- Hero (Banner) Section -->
     <section id="banner">
-        <h2>Experience The Stadium Energy Live!</h2>
-        <p>Book your tickets now for the biggest cricketing event of the year.</p>
-        <button onclick="location.href='#matches'">View Schedule</button>
-        <button onclick="location.href='#book-ticket'">Book Ticket</button>
+        <h1>Experience The Stadium Energy Live!</h1>
+        <p>Book your tickets now for the biggest match-day atmosphere in the stadium.</p>
+        <a href="#matches" class="btn-primary">View Schedule</a>
+        <a href="#book-ticket" class="btn-secondary">Book Ticket</a>
     </section>
 
-    <!-- About IPL 2027 -->
+    <!-- About Section -->
     <section id="about">
-        <h2>About IPL 2027</h2>
-        
+        <h2>About the Tournament</h2>
+        <p>Catch high-octane T20 action across iconic cricket venues with instant seat selection and digital entry passes.</p>
+
         <h3>Popular Teams</h3>
         <ul>
+            <li>Royal Challengers Bengaluru (RCB)</li>
             <li>Chennai Super Kings (CSK)</li>
             <li>Mumbai Indians (MI)</li>
-            <li>Royal Challengers Bengaluru (RCB)</li>
             <li>Kolkata Knight Riders (KKR)</li>
+            <li>Sunrisers Hyderabad (SRH)</li>
         </ul>
 
         <h3>Major Match Venues</h3>
         <ul>
-            <li>M. A. Chidambaram Stadium, Chennai</li>
-            <li>Wankhede Stadium, Mumbai</li>
-            <li>M. Chinnaswamy Stadium, Bengaluru</li>
-            <li>Eden Gardens, Kolkata</li>
+            <li>M. Chinnaswamy Stadium - Bengaluru</li>
+            <li>Wankhede Stadium - Mumbai</li>
+            <li>MA Chidambaram Stadium - Chennai</li>
+            <li>Eden Gardens - Kolkata</li>
         </ul>
     </section>
 
-    <!-- Match Schedule Section -->
+    <!-- Match Schedule Section (CSS Grid Cards + Filter + Grid/List Toggle) -->
     <section id="matches">
         <h2>Match Schedule</h2>
-        
-        <label for="team-filter"><strong>Filter by Team: </strong></label>
-        <select id="team-filter">
-            <option value="all">All Teams</option>
-            <option value="csk">Chennai Super Kings</option>
-            <option value="mi">Mumbai Indians</option>
-            <option value="rcb">Royal Challengers Bengaluru</option>
-        </select>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Match Number</th>
-                    <th>Teams</th>
-                    <th>Date & Time</th>
-                    <th>Venue</th>
-                    <th>Ticket Prices (General / Premium / VIP)</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Match 1</td>
-                    <td>CSK vs MI</td>
-                    <td>April 5, 2027 | 7:30 PM</td>
-                    <td>M. A. Chidambaram Stadium, Chennai</td>
-                    <td>₹1000 / ₹2500 / ₹5000</td>
-                    <td><button onclick="location.href='#book-ticket'">Book</button></td>
-                </tr>
-                <tr>
-                    <td>Match 2</td>
-                    <td>RCB vs KKR</td>
-                    <td>April 6, 2027 | 7:30 PM</td>
-                    <td>M. Chinnaswamy Stadium, Bengaluru</td>
-                    <td>₹1200 / ₹3000 / ₹6000</td>
-                    <td><button onclick="location.href='#book-ticket'">Book</button></td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="schedule-controls">
+            <div class="filter-group">
+                <label for="team-filter">Filter by Team:</label>
+                <select id="team-filter">
+                    <option value="ALL">All Teams</option>
+                    <option value="RCB">RCB</option>
+                    <option value="CSK">CSK</option>
+                    <option value="MI">MI</option>
+                    <option value="KKR">KKR</option>
+                    <option value="SRH">SRH</option>
+                </select>
+            </div>
+
+            <button type="button" id="view-toggle-btn" class="btn-toggle">Switch to List View</button>
+        </div>
+
+        <div class="matches-grid" id="matches-container">
+            <article class="match-card" data-teams="RCB CSK">
+                <span class="match-badge">Match 1</span>
+                <h3>RCB vs CSK</h3>
+                <p class="match-meta"><strong>Date &amp; Time:</strong> 10 April | 7:30 PM</p>
+                <p class="match-meta"><strong>Venue:</strong> Bengaluru</p>
+                <p class="match-prices"><strong>Prices:</strong> General ₹800 | Premium ₹1500 | VIP ₹3000</p>
+                <a href="#book-ticket" class="book-match-btn" data-match="RCB vs CSK">Book</a>
+            </article>
+
+            <article class="match-card" data-teams="MI KKR">
+                <span class="match-badge">Match 2</span>
+                <h3>MI vs KKR</h3>
+                <p class="match-meta"><strong>Date &amp; Time:</strong> 12 April | 7:30 PM</p>
+                <p class="match-meta"><strong>Venue:</strong> Mumbai</p>
+                <p class="match-prices"><strong>Prices:</strong> General ₹900 | Premium ₹1800 | VIP ₹3500</p>
+                <a href="#book-ticket" class="book-match-btn" data-match="MI vs KKR">Book</a>
+            </article>
+
+            <article class="match-card" data-teams="CSK SRH">
+                <span class="match-badge">Match 3</span>
+                <h3>CSK vs SRH</h3>
+                <p class="match-meta"><strong>Date &amp; Time:</strong> 15 April | 3:30 PM</p>
+                <p class="match-meta"><strong>Venue:</strong> Chennai</p>
+                <p class="match-prices"><strong>Prices:</strong> General ₹700 | Premium ₹1400 | VIP ₹2800</p>
+                <a href="#book-ticket" class="book-match-btn" data-match="CSK vs SRH">Book</a>
+            </article>
+
+            <article class="match-card" data-teams="RCB MI">
+                <span class="match-badge">Match 4</span>
+                <h3>RCB vs MI</h3>
+                <p class="match-meta"><strong>Date &amp; Time:</strong> 18 April | 7:30 PM</p>
+                <p class="match-meta"><strong>Venue:</strong> Bengaluru</p>
+                <p class="match-prices"><strong>Prices:</strong> General ₹950 | Premium ₹2000 | VIP ₹4000</p>
+                <a href="#book-ticket" class="book-match-btn" data-match="RCB vs MI">Book</a>
+            </article>
+        </div>
     </section>
 
     <!-- Ticket Booking Section -->
     <section id="book-ticket">
         <h2>Book Your Tickets</h2>
+
         <div class="booking-container">
-            
-            <!-- Booking Form -->
-            <div class="booking-form">
-                <form id="booking-form">
-                    <label for="match-select">Select Match:</label>
-                    <select id="match-select" name="match" required>
-                        <option value="" disabled selected>-- Choose a Match --</option>
-                        <option value="CSK vs MI">Match 1: CSK vs MI (Chennai)</option>
-                        <option value="RCB vs KKR">Match 2: RCB vs KKR (Bengaluru)</option>
-                    </select>
+            <form id="booking-form" class="booking-form">
+                <label for="match-select">Select Match:</label>
+                <select id="match-select" name="match" required>
+                    <option value="" disabled selected>-- Choose a Match --</option>
+                    <option value="RCB vs CSK">RCB vs CSK (Bengaluru)</option>
+                    <option value="MI vs KKR">MI vs KKR (Mumbai)</option>
+                    <option value="CSK vs SRH">CSK vs SRH (Chennai)</option>
+                    <option value="RCB vs MI">RCB vs MI (Bengaluru)</option>
+                </select>
 
-                    <label for="stand-select">Stand Category:</label>
-                    <select id="stand-select" name="stand" required>
-                        <option value="" disabled selected>-- Choose Stand --</option>
-                        <option value="General">General</option>
-                        <option value="Premium">Premium</option>
-                        <option value="VIP">VIP</option>
-                    </select>
+                <label for="stand-select">Stand Category:</label>
+                <select id="stand-select" name="stand" required>
+                    <option value="" disabled selected>-- Choose Stand --</option>
+                    <option value="General">General</option>
+                    <option value="Premium">Premium</option>
+                    <option value="VIP">VIP</option>
+                </select>
 
-                    <label for="ticket-qty">Number of Tickets:</label>
-                    <input type="number" id="ticket-qty" name="tickets" min="1" max="10" value="1" required>
+                <label for="ticket-qty">Number of Tickets:</label>
+                <input type="number" id="ticket-qty" name="tickets" min="1" max="10" value="1" required>
 
-                    <label for="full-name">Full Name:</label>
-                    <input type="text" id="full-name" name="name" required placeholder="Enter your full name">
+                <label for="full-name">Full Name:</label>
+                <input type="text" id="full-name" name="name" minlength="3" required placeholder="Enter your full name">
 
-                    <label for="email-address">Email:</label>
-                    <input type="email" id="email-address" name="email" required placeholder="name@example.com">
+                <label for="email-address">Email:</label>
+                <input type="email" id="email-address" name="email" required placeholder="name@example.com">
 
-                    <label for="phone-number">Phone Number:</label>
-                    <input type="tel" id="phone-number" name="phone" pattern="[0-9]{10}" placeholder="10-digit number" required>
+                <label for="phone-number">Phone Number:</label>
+                <input type="tel" id="phone-number" name="phone" pattern="[0-9]{10}" placeholder="10-digit mobile number" required>
 
-                    <button type="submit" style="margin-top: 15px; width: 100%;">Confirm Booking</button>
-                </form>
-            </div>
+                <button type="submit" class="btn-submit">Confirm Booking</button>
+            </form>
 
             <!-- Booking Summary Card -->
-            <div class="booking-summary">
+            <aside class="booking-summary" id="summary-section">
                 <h3>Booking Summary</h3>
                 <p><strong>Selected Match:</strong> <span id="sum-match">Not Selected</span></p>
                 <p><strong>Stand Category:</strong> <span id="sum-stand">Not Selected</span></p>
-                <p><strong>Ticket Price:</strong> ₹<span id="sum-price">0</span></p>
+                <p><strong>Ticket Price:</strong> <span id="sum-price">₹0</span></p>
                 <p><strong>Quantity:</strong> <span id="sum-qty">0</span></p>
                 <hr>
-                <p><strong>Total Amount:</strong> ₹<span id="sum-total">0</span></p>
-            </div>
-
+                <p class="summary-total"><strong>Total Amount:</strong> <span id="sum-total">₹0</span></p>
+            </aside>
         </div>
     </section>
 
     <!-- My Ticket Bookings Section -->
     <section id="my-bookings">
         <h2>My Ticket Bookings</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Booking ID</th>
-                    <th>Match</th>
-                    <th>Stand</th>
-                    <th>Tickets</th>
-                    <th>Amount Paid</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td colspan="6" style="text-align: center; color: #666;">No past bookings found.</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Booking ID</th>
+                        <th>Match</th>
+                        <th>Stand</th>
+                        <th>Tickets</th>
+                        <th>Total Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="bookings-tbody">
+                    <tr id="empty-bookings-row">
+                        <td colspan="6" class="empty-cell">No bookings available yet.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </section>
 
-    <!-- Guidelines Section -->
+    <!-- Guidelines Section (3-Column CSS Grid) -->
     <section id="guidelines">
-        <h2>Guidelines</h2>
+        <h2>Ticket Booking Guidelines</h2>
         <div class="cards">
-            <div class="card">
-                <h3>Ticket Verification</h3>
-                <p>Please ensure your digital or physical ticket QR code is clear and visible for scanning at the stadium gates. Do not share your QR code online.</p>
-            </div>
-            <div class="card">
-                <h3>ID Proof Requirement</h3>
-                <p>You must carry a valid government-issued ID (e.g., Aadhaar Card, PAN, or Passport) matching the name on your ticket for verification.</p>
-            </div>
-            <div class="card">
-                <h3>Prohibited Items</h3>
-                <p>Large bags, outside food and beverages, laptops, laser pointers, and hazardous materials are strictly prohibited inside the stadium premises.</p>
-            </div>
+            <article class="card">
+                <h3>1. Ticket Verification</h3>
+                <p>Carry your valid digital or printed ticket QR code for stadium gate scanning.</p>
+            </article>
+            <article class="card">
+                <h3>2. ID Proof Requirement</h3>
+                <p>Bring a valid government-issued photo ID matching the booking name at entry.</p>
+            </article>
+            <article class="card">
+                <h3>3. Prohibited Items</h3>
+                <p>Outside food, large bags, sharp objects, and restricted items are not permitted.</p>
+            </article>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2027 IPL Ticket Booking. All Rights Reserved.</p>
+        <p>Copyright &copy; IPL Ticket Booking Website. All Rights Reserved.</p>
     </footer>
 
-    <!-- JavaScript File -->
     <script src="app.js"></script>
-
 </body>
 </html>

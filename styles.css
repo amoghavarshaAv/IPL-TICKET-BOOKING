@@ -1,21 +1,26 @@
 /* --- CSS Variables & Theme Setup --- */
 :root {
-    --primary-color: #0b1d3a;      /* Deep Royal Blue */
-    --accent-color: #f4c430;       /* Gold / Championship Yellow */
-    --accent-hover: #d4a520;       /* Darker Gold for hover states */
-    --bg-color: #f4f7f9;           /* Light neutral background */
-    --card-bg: #ffffff;            /* White card background */
-    --text-color: #333333;         /* Dark grey text */
-    --text-light: #666666;         /* Muted text */
-    --border-color: #d1d8e0;       /* Light border */
-    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --primary-color: #0b1d3a;
+    --secondary-color: #162e54;
+    --accent-color: #f4c430;
+    --accent-hover: #d8a91e;
+    --bg-color: #f4f7f9;
+    --card-bg: #ffffff;
+    --text-color: #222831;
+    --text-light: #5c6773;
+    --border-color: #dce3ea;
+    --shadow: 0 6px 18px rgba(11, 29, 58, 0.08);
 }
 
-/* --- Global Styles --- */
+/* --- Global Reset --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -23,139 +28,351 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
-    padding-top: 80px; /* Space for fixed header */
+    padding-top: 72px;
 }
 
-hr {
-    display: none;
-}
-
-/* --- Navigation Bar (Fixed Position) --- */
+/* --- Navigation Bar (Flexbox) --- */
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    min-height: 72px;
     background-color: var(--primary-color);
     color: #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 50px;
+    padding: 12px 40px;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
 }
 
-header h2 {
-    font-size: 1.4rem;
+.logo {
+    font-size: 1.35rem;
     font-weight: 700;
     color: var(--accent-color);
-    letter-spacing: 0.5px;
+    letter-spacing: 0.4px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
 }
 
 nav a {
     color: #ffffff;
     text-decoration: none;
-    margin-left: 20px;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    font-weight: 600;
+    padding: 6px 2px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.25s ease, border-color 0.25s ease;
 }
 
 nav a:hover {
     color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
 }
 
-/* --- Sections & Layout Cards --- */
+.hamburger {
+    display: none;
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 6px;
+    font-size: 1.4rem;
+    line-height: 1;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+/* --- Main Sections --- */
 section {
-    max-width: 1000px;
-    margin: 30px auto;
+    max-width: 1120px;
+    margin: 28px auto;
     background-color: var(--card-bg);
-    padding: 40px;
+    padding: 36px;
     border-radius: 12px;
     box-shadow: var(--shadow);
 }
 
 section h2 {
     color: var(--primary-color);
+    font-size: 1.75rem;
     margin-bottom: 20px;
-    font-size: 1.8rem;
+    padding-bottom: 8px;
     border-bottom: 3px solid var(--accent-color);
     display: inline-block;
-    padding-bottom: 5px;
 }
 
 section h3 {
     color: var(--primary-color);
-    margin-top: 20px;
+    font-size: 1.15rem;
+    margin-top: 18px;
     margin-bottom: 10px;
-    font-size: 1.2rem;
 }
 
-p, ul {
-    margin-bottom: 15px;
+p {
     color: var(--text-light);
+    margin-bottom: 12px;
 }
 
 ul {
-    padding-left: 20px;
+    padding-left: 22px;
+    color: var(--text-light);
 }
 
 ul li {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
-/* --- Hero (Banner) Section --- */
+/* --- Hero Section --- */
 #banner {
-    background: linear-gradient(135deg, var(--primary-color), #1a365d);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: #ffffff;
     text-align: center;
-    padding: 60px 20px;
-    margin-top: 20px;
+    padding: 56px 24px;
 }
 
-#banner h2 {
-    font-size: 2.5rem;
+#banner h1 {
+    font-size: 2.3rem;
+    margin-bottom: 12px;
     color: #ffffff;
-    margin-bottom: 15px;
-    border-bottom: none;
 }
 
 #banner p {
     color: #e2e8f0;
-    font-size: 1.1rem;
-    margin-bottom: 25px;
+    font-size: 1.08rem;
+    max-width: 620px;
+    margin: 0 auto 24px;
 }
 
-#banner button, button {
+.btn-primary,
+.btn-secondary,
+.book-match-btn,
+.btn-toggle {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.25s ease;
+}
+
+.btn-primary,
+.book-match-btn,
+.btn-toggle {
     background-color: var(--accent-color);
     color: var(--primary-color);
-    padding: 12px 25px;
-    border-radius: 30px;
     border: none;
-    font-weight: 700;
-    cursor: pointer;
-    margin: 0 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    padding: 11px 20px;
 }
 
-#banner button:hover, button:hover {
+.btn-primary:hover,
+.book-match-btn:hover,
+.btn-toggle:hover {
     background-color: var(--accent-hover);
     transform: translateY(-2px);
 }
 
-/* --- Tables (Match Schedule & Bookings) --- */
+.btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid var(--accent-color);
+    padding: 9px 18px;
+    margin-left: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(244, 196, 48, 0.14);
+}
+
+/* --- Match Schedule Controls & CSS Grid --- */
+.schedule-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-group label {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.filter-group select {
+    padding: 9px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    background-color: #ffffff;
+}
+
+.matches-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.match-card {
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fcfdfe;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+}
+
+.match-card.hidden {
+    display: none;
+}
+
+.match-badge {
+    align-self: flex-start;
+    background-color: var(--primary-color);
+    color: var(--accent-color);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+.match-card h3 {
+    margin: 2px 0;
+    font-size: 1.3rem;
+}
+
+.match-meta,
+.match-prices {
+    margin-bottom: 4px;
+    font-size: 0.95rem;
+}
+
+.book-match-btn {
+    align-self: flex-start;
+    margin-top: 6px;
+    padding: 8px 18px;
+    font-size: 0.92rem;
+}
+
+/* List View Toggle State */
+.matches-grid.list-view {
+    grid-template-columns: 1fr;
+}
+
+.matches-grid.list-view .match-card {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+/* --- Booking Form & Summary --- */
+.booking-container {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+}
+
+.booking-form {
+    flex: 1.4;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.booking-form label {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.booking-form input,
+.booking-form select {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #fafbfc;
+}
+
+.booking-form input:focus,
+.booking-form select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: #ffffff;
+}
+
+.btn-submit {
+    margin-top: 8px;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 13px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+.btn-submit:hover {
+    background-color: var(--secondary-color);
+}
+
+.booking-summary {
+    flex: 1;
+    background-color: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent-color);
+    border-radius: 10px;
+    padding: 22px;
+}
+
+.booking-summary h3 {
+    margin-top: 0;
+    margin-bottom: 14px;
+}
+
+.booking-summary hr {
+    border: 0;
+    border-top: 1px solid var(--border-color);
+    margin: 12px 0;
+}
+
+.summary-total {
+    font-size: 1.15rem;
+    color: var(--primary-color);
+}
+
+/* --- Bookings Table --- */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 15px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-top: 8px;
 }
 
-th, td {
-    padding: 12px 15px;
+th,
+td {
+    padding: 12px 14px;
     text-align: left;
     border-bottom: 1px solid var(--border-color);
 }
@@ -166,85 +383,28 @@ th {
     font-weight: 600;
 }
 
-tr:hover {
-    background-color: #f8fafc;
+.empty-cell {
+    text-align: center;
+    color: var(--text-light);
 }
 
-/* --- Booking Section Layout --- */
-.booking-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-top: 1rem;
-}
-
-.booking-form, .booking-summary {
-    flex: 1;
-    min-width: 300px;
-    background: #fafafa;
-    padding: 1.5rem;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-}
-
-form label {
-    display: block;
-    margin-top: 10px;
-    font-weight: 600;
-    color: var(--primary-color);
-}
-
-form input, form select {
-    width: 100%;
-    padding: 12px;
-    margin-top: 5px;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    font-size: 1rem;
-    background-color: #fafbfc;
-    transition: border-color 0.3s ease;
-}
-
-form input:focus, form select:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    background-color: #ffffff;
-}
-
-button[type="submit"] {
-    background-color: var(--primary-color);
-    color: #ffffff;
-    padding: 14px;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 15px;
-    transition: background-color 0.3s ease;
-}
-
-button[type="submit"]:hover {
-    background-color: #1a365d;
-}
-
-/* --- Guidelines Cards --- */
+/* --- Guidelines (3-Column CSS Grid) --- */
 .cards {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
 }
 
 .card {
-    flex: 1;
-    min-width: 250px;
-    background: #fff;
-    padding: 1.5rem;
+    background-color: #fcfdfe;
     border: 1px solid var(--border-color);
-    border-radius: 8px;
-    box-shadow: var(--shadow);
+    border-radius: 10px;
+    padding: 22px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+}
+
+.card h3 {
+    margin-top: 0;
 }
 
 /* --- Footer --- */
@@ -252,12 +412,74 @@ footer {
     background-color: var(--primary-color);
     color: #ffffff;
     text-align: center;
-    padding: 30px;
-    margin-top: 50px;
-    font-size: 0.9rem;
+    padding: 24px;
+    margin-top: 40px;
 }
 
 footer p {
-    color: #cbd5e1;
-    margin-bottom: 5px;
+    color: #e2e8f0;
+    margin: 0;
+}
+
+/* --- Responsive Media Queries (Tablets & Phones) --- */
+@media (max-width: 900px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 12px 20px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px 24px;
+        gap: 14px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    nav.open {
+        display: flex;
+    }
+
+    section {
+        margin: 18px 14px;
+        padding: 24px 18px;
+    }
+
+    #banner h1 {
+        font-size: 1.75rem;
+    }
+
+    .btn-secondary {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .matches-grid,
+    .matches-grid.list-view {
+        grid-template-columns: 1fr;
+    }
+
+    .matches-grid.list-view .match-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
