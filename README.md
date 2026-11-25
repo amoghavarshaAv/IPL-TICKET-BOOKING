@@ -1,23 +1,20 @@
-# IPL-TICKET-BOOKING# 🏏 IPL 2027 Ticket Booking Website
+# IPL 2027 Ticket Booking Website
 
-A responsive and modern web application built for booking Indian Premier League (IPL) 2026 match tickets. This project features dynamic match schedules, pricing categories (General, Premium, VIP), and an interactive booking user interface.
+A responsive web application for browsing IPL 2027 match schedules, calculating ticket prices live, submitting bookings, and viewing booking history.
 
-## ✨ Features
-* **Navigation Bar:** Fixed modern header with smooth links to various sections.
-* **Hero Banner:** Eye-catching gradient design with quick action links.
-* **Match Schedule Table:** Comprehensive listing of upcoming matches, venues, and ticket pricing tiers.
-* **Interactive Booking Form:** User-friendly form to select matches, stand categories, quantity, and user details.
-* **Live Booking Summary & Records:** View active summaries and user booking logs.
-* **Guidelines Section:** Important stadium entry policies, ID proof requirements, and safety guidelines.
+## Features
 
-## 🛠️ Technologies Used
-* **HTML5:** Semantic layout and structural markup.
-* **CSS3:** Custom styling featuring CSS variables, flexbox, grid layouts, and a royal blue & gold color theme.
-* **Git & GitHub:** Version control and source code management.
+- **Navigation & Hero Banner:** Fixed navigation bar with smooth section links, mobile hamburger menu toggle, and hero call-to-action buttons.
+- **Tournament Overview:** Highlights popular teams and major match venues.
+- **Interactive Match Schedule:** CSS Grid match cards with team filtering (`ALL`, `RCB`, `CSK`, `MI`, `KKR`, `SRH`), a Grid/List view toggle, and direct booking selection.
+- **Live Booking Summary & Form:** Interactive form for selecting a match, stand category (`General`, `Premium`, `VIP`), ticket quantity, and attendee details with real-time price and total calculation plus toast notifications.
+- **My Ticket Bookings Table:** Dynamically appends confirmed bookings with generated booking IDs, ticket counts, and total amounts.
+- **Stadium Guidelines & Responsive Layout:** 3-column guidelines grid that adapts cleanly across desktop, tablet, and mobile viewports using Flexbox, CSS Grid, and media queries.
 
-## 🚀 Getting Started
-To view and run this project locally on your machine:
+## Project Structure
 
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/amoghavarshaAv/IPL-TICKET-BOOKING.git](https://github.com/amoghavarshaAv/IPL-TICKET-BOOKING.git)
+```text
+├── index.html
+├── styles.css
+├── app.js
+└── README.md
